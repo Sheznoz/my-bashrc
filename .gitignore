@@ -3,3 +3,4 @@
 # Except the bashrc
 !.bashrc
 !README.md
+!bashrc-install.sh
