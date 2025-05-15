@@ -76,6 +76,14 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
+	alias ll='ls -hlia'
+	alias v='nvim'
+	alias lg='lazygit'
+	alias src='source ~/.bashrc'
+	alias config='nvim ~/.config/hypr/hyprland.conf'
+	alias bashrc='nvim ~/.bashrc && source ~/.bashrc'
+	alias nvimconf='cd ~/.config/nvim && nvim .'
+	alias update='yay -Syu'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -117,3 +125,7 @@ parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' -e 's/^ *//; s/ *$//' | awk '{print "(" $0 ") "}'
 }
 export PS1="\[\033[1;38;5;30m\]\$(parse_git_branch)\[\033[00m\]\[\033[38;5;142m\]\u@\h: \[\033[00m\]\[\033[32m\]\w\[\033[00m\] $ "
+
+if [ "$(tty)" = "/dev/tty1" ];then
+  exec Hyprland
+fi
