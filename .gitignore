@@ -2,3 +2,4 @@
 *
 # Except the bashrc
 !.bashrc
+!README.md
